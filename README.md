@@ -10,7 +10,7 @@ Peut-on prévoir la consommation de demain, et des 7 jours suivants, à partir d
 
 - Jeu **éCO2mix national temps réel** (RTE), mesures toutes les 15 minutes.
 - Période : du 1er septembre au 25 novembre 2026, soit environ 86 jours.
-- Regroupement en **moyenne journalière** (MW).
+- Regroupement en **moyenne journalière** (MW). Après création des variables : 79 jours exploitables.
 
 ## Démarche
 
@@ -57,7 +57,7 @@ Curseur de 1 à 7 jours, courbe historique et prévision.
 - Le test à 7 jours repose sur une seule fenêtre, qui contient un jour férié.
 - Pas de température ni de jours fériés dans le modèle.
 
-## Pistes
+## Pistes d'amélioration
 
 - Utiliser le jeu « consolidé et définitif » (plusieurs années).
 - Ajouter la température et un calendrier des jours fériés.
@@ -69,9 +69,8 @@ Curseur de 1 à 7 jours, courbe historique et prévision.
 git clone https://github.com/fat825/conso-electricite-prevision.git
 cd conso-electricite-prevision
 python -m venv venv
-venv\Scripts\activate
+venv\Scripts\activate        # Mac/Linux : source venv/bin/activate
 pip install pandas numpy matplotlib scikit-learn lightgbm streamlit joblib
-python -m streamlit run src/app.py
 ```
 
-Les données brutes ne sont pas incluses : télécharger éCO2mix sur data.gouv.fr et le placer dans `data/`. Analyse dans `notebooks/01_exploration.ipynb`.
+Les données brutes ne sont pas incluses : télécharger **éCO2mix national temps réel** sur data.gouv.fr et placer le CSV dans
